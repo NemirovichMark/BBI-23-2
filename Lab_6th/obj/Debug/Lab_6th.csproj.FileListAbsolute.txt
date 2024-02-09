@@ -1,0 +1,7 @@
+C:\Users\b804\Source\Repos\BBI-23-2\Lab_6th\obj\Debug\Lab_6th.csproj.AssemblyReference.cache
+C:\Users\b804\Source\Repos\BBI-23-2\Lab_6th\obj\Debug\Lab_6th.csproj.CoreCompileInputs.cache
+C:\Users\b804\Source\Repos\BBI-23-2\Lab_6th\bin\Debug\Lab_6th.exe.config
+C:\Users\b804\Source\Repos\BBI-23-2\Lab_6th\bin\Debug\Lab_6th.exe
+C:\Users\b804\Source\Repos\BBI-23-2\Lab_6th\bin\Debug\Lab_6th.pdb
+C:\Users\b804\Source\Repos\BBI-23-2\Lab_6th\obj\Debug\Lab_6th.exe
+C:\Users\b804\Source\Repos\BBI-23-2\Lab_6th\obj\Debug\Lab_6th.pdb
