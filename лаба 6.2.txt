@@ -1,0 +1,52 @@
+﻿//2 уровень
+//1
+//Студенты одной группы в сессию сдают четыре экзамена. Составить список 
+//студентов, средний балл которых по всем экзаменам не менее «4». Результаты 
+//вывести в виде таблицы с заголовком в порядке убывания среднего балла
+
+using System;
+class program
+{
+	struct student
+	{
+		public string famile;
+		public double mark;
+		public student(string f, int mark1, int mark2, int mark3, int mark4)
+		{
+			famile = f;
+			mark=(double)(mark1+mark2+mark3+mark4)/4;
+		}
+	}
+	static void Main()
+	{
+		student[] st = new student[5];
+		st[0] = new student("студент1", 5, 5, 2, 5);
+		st[1] = new student("студент2", 5, 4, 5, 5);
+		st[2] = new student("студент3", 3, 2, 3, 4);
+		st[3] = new student("студент4", 4, 2, 5, 5);
+		st[4] = new student("студент5", 3, 5, 4, 3);
+		for(int i = 0; i < st.Length; i++)
+		{
+			Console.WriteLine($"фамилия {st[i].famile}\t балл {st[i].mark}");
+		}
+		for (int i = 0;i < st.Length;i++)
+		{
+			for(int j=0; j < st.Length - 1; j++)
+			{
+				if (st[j].mark< st[j + 1].mark)
+				{
+					(st[j], st[j + 1]) = (st[j+1], st[j]);
+				}
+			}
+		}
+		Console.WriteLine();
+		for (int i = 0; i < st.Length; i++)
+		{
+			if (st[i].mark >= 4)
+			{
+				Console.WriteLine($"фамилия {st[i].famile}\t балл {st[i].mark}");
+			}
+			else break;
+		}
+	}
+}
