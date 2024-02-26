@@ -1,0 +1,15 @@
+/Users/palppv/Projects/task3/task3/bin/Debug/net7.0/task3
+/Users/palppv/Projects/task3/task3/bin/Debug/net7.0/task3.deps.json
+/Users/palppv/Projects/task3/task3/bin/Debug/net7.0/task3.runtimeconfig.json
+/Users/palppv/Projects/task3/task3/bin/Debug/net7.0/task3.dll
+/Users/palppv/Projects/task3/task3/bin/Debug/net7.0/task3.pdb
+/Users/palppv/Projects/task3/task3/obj/Debug/net7.0/task3.csproj.AssemblyReference.cache
+/Users/palppv/Projects/task3/task3/obj/Debug/net7.0/task3.GeneratedMSBuildEditorConfig.editorconfig
+/Users/palppv/Projects/task3/task3/obj/Debug/net7.0/task3.AssemblyInfoInputs.cache
+/Users/palppv/Projects/task3/task3/obj/Debug/net7.0/task3.AssemblyInfo.cs
+/Users/palppv/Projects/task3/task3/obj/Debug/net7.0/task3.csproj.CoreCompileInputs.cache
+/Users/palppv/Projects/task3/task3/obj/Debug/net7.0/task3.dll
+/Users/palppv/Projects/task3/task3/obj/Debug/net7.0/refint/task3.dll
+/Users/palppv/Projects/task3/task3/obj/Debug/net7.0/task3.pdb
+/Users/palppv/Projects/task3/task3/obj/Debug/net7.0/task3.genruntimeconfig.cache
+/Users/palppv/Projects/task3/task3/obj/Debug/net7.0/ref/task3.dll
