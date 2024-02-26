@@ -1,0 +1,98 @@
+﻿//3 уровень
+//1
+//Результаты сессии содержат оценки 5 экзаменов по каждой группе. Определить 
+//средний балл для трех групп студентов одного потока и выдать список групп в 
+//порядке убывания среднего бала. Результаты вывести в виде таблицы с 
+//заголовком
+struct students
+{
+	public string group;
+	public string famile;
+	public double mark;
+	public students(string g, string f, int mark1, int mark2, int mark3, int mark4, int mark5)
+	{
+		group = g;
+		famile = f;
+		mark = (double)(mark1+mark2+mark3+mark4+mark5)/5;
+	}
+}
+class programm
+{
+	static void Main()
+	{
+		int n = 9;
+		students[] st = new students[n];
+		st[0] = new students("group1", "student1", 2, 4, 3, 5, 3);
+		st[1] = new students("group1", "student2", 3, 3, 4, 5, 2);
+		st[2] = new students("group1", "student3", 4, 5, 5, 4, 5);
+		st[3] = new students("group2", "student4", 3, 4, 4, 2, 2);
+		st[4] = new students("group2", "student5", 2, 4, 4, 5, 2);
+		st[5] = new students("group2", "student6", 4, 4, 4, 4, 4);
+		st[6] = new students("group3", "student7", 2, 5, 3, 5, 3);
+		st[7] = new students("group3", "student8", 4, 5, 5, 4, 5);
+		st[8] = new students("group3", "student9", 3, 5, 4, 3, 4);
+		double m1 = 0, m2 = 0, m3 = 0;
+		for (int i = 0; i < n; i++)
+		{
+			Console.WriteLine($"группа: {st[i].group}, фамилия: {st[i].famile}\t средний балл: {st[i].mark}");
+			if (st[i].group == "group1")
+			{
+				m1 += st[i].mark;
+			}
+			else if (st[i].group == "group2")
+			{
+				m2 += st[i].mark;
+			}
+			else
+			{
+				m3 += st[i].mark;
+			}
+		}
+		m1 /= 3;
+		m2 /= 3;
+		m3 /= 3;
+		Console.WriteLine();
+		if (m1>m2 && m1 > m3)
+		{
+			Console.WriteLine($"группа: {st[0].group}\t средний балл:{m1}");
+			if (m2>m3)
+			{
+				Console.WriteLine($"группа: {st[3].group}\t средний балл:{m2}");
+				Console.WriteLine($"группа: {st[6].group}\t средний балл:{m3}");
+			}
+			else
+			{
+				Console.WriteLine($"группа: {st[6].group}\t средний балл:{m3}");
+				Console.WriteLine($"группа: {st[3].group}\t средний балл:{m2}");
+			}
+		}
+		else if (m2>m1 && m2 > m3)
+		{
+			Console.WriteLine($"группа: {st[3].group}\t средний балл:{m2}");
+			if (m1 > m3)
+			{
+				Console.WriteLine($"группа: {st[0].group}\t средний балл:{m1}");
+				Console.WriteLine($"группа: {st[6].group}\t средний балл:{m3}");
+			}
+			else
+			{
+				Console.WriteLine($"группа: {st[6].group}\t средний балл:{m3}");
+				Console.WriteLine($"группа: {st[0].group}\t средний балл:{m1}");
+			}
+		}
+		else
+		{
+			Console.WriteLine($"группа: {st[6].group}\t средний балл:{m3}");
+			if (m1 > m2)
+			{
+				Console.WriteLine($"группа: {st[0].group}\t средний балл:{m1}");
+				Console.WriteLine($"группа: {st[3].group}\t средний балл:{m2}");
+			}
+			else
+			{
+				Console.WriteLine($"группа: {st[3].group}\t средний балл:{m2}");
+				Console.WriteLine($"группа: {st[0].group}\t средний балл:{m1}");
+			}
+		}
+	}
+}
