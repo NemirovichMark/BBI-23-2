@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/palppv/Projects/task3/task3/task3.csproj": {}
+    "/Users/palppv/Documents/BBI-23-2/Lab_6/task3/task3/task3.csproj": {}
   },
   "projects": {
-    "/Users/palppv/Projects/task3/task3/task3.csproj": {
+    "/Users/palppv/Documents/BBI-23-2/Lab_6/task3/task3/task3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/palppv/Projects/task3/task3/task3.csproj",
+        "projectUniqueName": "/Users/palppv/Documents/BBI-23-2/Lab_6/task3/task3/task3.csproj",
         "projectName": "task3",
-        "projectPath": "/Users/palppv/Projects/task3/task3/task3.csproj",
+        "projectPath": "/Users/palppv/Documents/BBI-23-2/Lab_6/task3/task3/task3.csproj",
         "packagesPath": "/Users/palppv/.nuget/packages/",
-        "outputPath": "/Users/palppv/Projects/task3/task3/obj/",
+        "outputPath": "/Users/palppv/Documents/BBI-23-2/Lab_6/task3/task3/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/palppv/.nuget/NuGet/NuGet.Config"

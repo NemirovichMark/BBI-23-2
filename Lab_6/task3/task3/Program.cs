@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 struct Lijnik
 {
@@ -14,14 +15,12 @@ struct Lijnik
         this.result = result;
     }
 }
+
 class Program
 {
     static void Main()
     {
-        (string, int)[] all_group = new (string, int)[10];
-
         Lijnik[] first_group = new Lijnik[5];
-
         first_group[0] = new Lijnik("Иванов", 4);
         first_group[1] = new Lijnik("Петров", 6);
         first_group[2] = new Lijnik("Сидоров", 2);
@@ -30,13 +29,7 @@ class Program
 
         Array.Sort(first_group, (x, y) => x.Result.CompareTo(y.Result));
 
-        for (int i = 0; i < 5; i++)
-        {
-            all_group[i] = (first_group[i].Surname, first_group[i].Result);
-        }
-
         Lijnik[] second_group = new Lijnik[5];
-
         second_group[0] = new Lijnik("Ирвинг", 4);
         second_group[1] = new Lijnik("Зубастик", 6);
         second_group[2] = new Lijnik("Волков", 2);
@@ -45,18 +38,17 @@ class Program
 
         Array.Sort(second_group, (x, y) => x.Result.CompareTo(y.Result));
 
-        for (int i = 5; i < 10; i++)
-        {
-            all_group[i] = (second_group[i - 5].Surname, second_group[i - 5].Result);
-        }
+        Lijnik[] all_group = first_group.Concat(second_group).ToArray();
+        Array.Sort(all_group, (x, y) => x.Result.CompareTo(y.Result));
 
         Console.WriteLine("{0,-15} {1,-10}", "Фамилия", "Результат");
         Console.WriteLine("-----------------------");
 
         foreach (var elem in all_group)
         {
-            Console.WriteLine("{0,-15} {1,-10}", elem.Item1, elem.Item2);
+            Console.WriteLine("{0,-15} {1,-10}", elem.Surname, elem.Result);
         }
+
         Console.WriteLine("    ♥♥♥    ♥♥♥    ");
         Console.WriteLine("  ♥    ♥♥♥    ♥  ");
         Console.WriteLine("♥       ♥       ♥");
@@ -64,10 +56,5 @@ class Program
         Console.WriteLine("    ♥       ♥    ");
         Console.WriteLine("      ♥   ♥      ");
         Console.WriteLine("        ♥        ");
-
-
-
-
-
     }
 }
