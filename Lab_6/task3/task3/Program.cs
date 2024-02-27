@@ -14,10 +14,50 @@ struct Lijnik
         this.surname = surname;
         this.result = result;
     }
+    public string GetTable()
+    {
+        string table = $"{Surname,-15} {Result,-10}\n";
+        table += "-----------------------\n";
+        return table;
+    }
 }
 
 class Program
 {
+
+    static Lijnik[] MergeArrays(Lijnik[] first, Lijnik[] second)
+    {
+        int totalLength = first.Length + second.Length;
+        Lijnik[] merged = new Lijnik[totalLength];
+
+        int i = 0, j = 0, k = 0;
+
+        while (i < first.Length && j < second.Length)
+        {
+            if (first[i].Result <= second[j].Result)
+            {
+                merged[k++] = first[i++];
+            }
+            else
+            {
+                merged[k++] = second[j++];
+            }
+        }
+
+        while (i < first.Length)
+        {
+            merged[k++] = first[i++];
+        }
+
+        while (j < second.Length)
+        {
+            merged[k++] = second[j++];
+        }
+
+        return merged;
+    }
+
+
     static void Main()
     {
         Lijnik[] first_group = new Lijnik[5];
@@ -38,23 +78,11 @@ class Program
 
         Array.Sort(second_group, (x, y) => x.Result.CompareTo(y.Result));
 
-        Lijnik[] all_group = first_group.Concat(second_group).ToArray();
-        Array.Sort(all_group, (x, y) => x.Result.CompareTo(y.Result));
-
-        Console.WriteLine("{0,-15} {1,-10}", "Фамилия", "Результат");
-        Console.WriteLine("-----------------------");
+        Lijnik[] all_group = MergeArrays(first_group, second_group);
 
         foreach (var elem in all_group)
         {
-            Console.WriteLine("{0,-15} {1,-10}", elem.Surname, elem.Result);
+            Console.WriteLine(elem.GetTable());
         }
-
-        Console.WriteLine("    ♥♥♥    ♥♥♥    ");
-        Console.WriteLine("  ♥    ♥♥♥    ♥  ");
-        Console.WriteLine("♥       ♥       ♥");
-        Console.WriteLine("  ♥           ♥  ");
-        Console.WriteLine("    ♥       ♥    ");
-        Console.WriteLine("      ♥   ♥      ");
-        Console.WriteLine("        ♥        ");
     }
 }

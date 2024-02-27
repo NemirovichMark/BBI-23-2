@@ -14,6 +14,10 @@ struct Sportik
         this.result = result;
     }
 
+    public void GetSportiksInfo()
+    {
+        Console.WriteLine($"фамилия: {Surname} | баллы: {result}");
+    }
 }
 
 class Program
@@ -31,7 +35,7 @@ class Program
 
         for (int i = 0; i < sportiks.Length; i++)
         {
-            Console.WriteLine($"фамилия:  {sportiks[i].Surname}  |   баллы:  {sportiks[i].Result}");
+            sportiks[i].GetSportiksInfo();
         }
     }
 }

@@ -22,6 +22,12 @@ class Program
             this.firstAttempt = firstAttempt;
             this.secondAttempt = secondAttempt;
         }
+        //Если я правильно понял ваше исправление, вы хотили, чтобы я просто инкапсулировал метод вывода информации в структуру
+        public string GetAthleteInfo(int place)
+        {
+            return $"Место {place} | Фамилия {lastName}\n";
+        }
+
     }
 
     static void Main()
@@ -38,8 +44,9 @@ class Program
 
         for (int i = 0; i < athletes.Length; i++)
         {
-            Console.Write($"Место {i + 1} | Фамилия {athletes[i].LastName}\n");
+            Console.Write(athletes[i].GetAthleteInfo(i + 1));
         }
+
         Console.WriteLine();
     }
 }
