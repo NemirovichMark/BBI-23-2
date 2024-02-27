@@ -1,0 +1,7 @@
+C:\Users\Эдита\Documents\BBI-23-2\Lab6\Level1\bin\Debug\Level1.exe.config
+C:\Users\Эдита\Documents\BBI-23-2\Lab6\Level1\bin\Debug\Level1.exe
+C:\Users\Эдита\Documents\BBI-23-2\Lab6\Level1\bin\Debug\Level1.pdb
+C:\Users\Эдита\Documents\BBI-23-2\Lab6\Level1\obj\Debug\Level1.csproj.AssemblyReference.cache
+C:\Users\Эдита\Documents\BBI-23-2\Lab6\Level1\obj\Debug\Level1.csproj.CoreCompileInputs.cache
+C:\Users\Эдита\Documents\BBI-23-2\Lab6\Level1\obj\Debug\Level1.exe
+C:\Users\Эдита\Documents\BBI-23-2\Lab6\Level1\obj\Debug\Level1.pdb
