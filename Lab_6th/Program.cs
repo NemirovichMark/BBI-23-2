@@ -1,5 +1,4 @@
 ﻿using System.Globalization;
-
 namespace lab_6th
 {
     public struct Sportsmen
