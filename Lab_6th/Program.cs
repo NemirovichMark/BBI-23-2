@@ -2,88 +2,121 @@
 
 namespace lab_6th
 {
-    //первая часть второй номер
-    public struct Girls
+    using System.Drawing;
+    using System.Globalization;
+
+    namespace ConsoleApp1
     {
-        private string _name;
-        private string _surname_teacher;
-        private int _group;
-        private int _result;
-        public Girls(string name, string surname_teacher, int group, int result)
+        public struct Sportsmen
         {
-            _name = name;
-            _surname_teacher = surname_teacher;
-            _group = group;
-            _result = result;
-        }
-        public int Result
-        {
-            get { return _result; }
-        }
-        public string Name
-        {
-            get { return _name; }
-        }
-        public string Surname_Teacher
-        {
-            get { return _surname_teacher; }
-        }
-        public int Group
-        {
-            get { return _group; }
-        }
-    }
-    internal class Program
-    {
-
-
-        static void Main(string[] args)
-        {
-            Girls[] girls = new Girls[4] {new Girls("Юля", "Грантова", 1 , 2 ),
-            new Girls("Таня", " Собчак", 3, 5),
-            new Girls("Александра", "Мармеладова", 3 , 4 ), new Girls("Лена", " Герберт", 6, int.MaxValue)};
-            Sort(girls);
-            for (int i = 0; i < girls.Length; i++)
+            private string _surname;
+            double _points;
+            public Sportsmen(string surname, double points)
             {
-                string j;
-                if (girls[i].Result == int.MaxValue)
-                {
-                    j = Convert.ToString(girls[i].Result);
-                    j = "не пробежала";
-                }
-                else
-                {
-                    j = Convert.ToString(girls[i].Result);
-                }
-                Console.WriteLine($"имя:{girls[i].Name}, группа:{girls[i].Group}, фамилия учителя:{girls[i].Surname_Teacher}, результат:{j}  \n");
+                _surname = surname;
+                _points = points;
             }
-            int count = Counter(girls);
-            Console.WriteLine($"число девушек пробежавших забег: {count}");
+            public double Points
+            { get { return _points; } }
+
+            public string Surname
+            { get { return _surname; } }
 
         }
-
-        static int Counter(Girls[] girls)
+        internal class Program
         {
-            int count = 0;
-            for (int i = 0; i < girls.Length; i++)
+            static void Main(string[] args)
             {
-                if (girls[i].Result != int.MaxValue) count++;
-            }
-            return count;
-        }
-        static Girls[] Sort(Girls[] girls)
-        {
-
-            for (int i = 1; i < girls.Length; i++)
-            {
-                Girls temp;
-                if (girls[i].Result < girls[i - 1].Result)
+                Sportsmen[] list_of_sportsmens = {
+                new Sportsmen("Tsoy", Point_Generator()),
+                new Sportsmen("Letov", Point_Generator()),
+                new Sportsmen("Klinskih", Point_Generator()),
+                new Sportsmen("Osbourne", Point_Generator()) };
+                for (int i = 0; i < list_of_sportsmens.Length; i++)
                 {
-                    temp = girls[i];
-                    girls[i] = girls[i - 1]; girls[i - 1] = temp;
+                    Console.WriteLine($"имя: {list_of_sportsmens[i].Surname} очки: {list_of_sportsmens[i].Points}");
                 }
+                Sort(list_of_sportsmens);
+                Console.WriteLine("список спортсменов по местам");
+                for (int i = 0; i < list_of_sportsmens.Length; i++)
+                {
+                    Console.WriteLine($"имя: {list_of_sportsmens[i].Surname} очки: {list_of_sportsmens[i].Points}");
+                }
+
             }
-            return girls;
+            static double Point_Generator()
+            {
+                int[] points = new int[4]; double total_points = 0;
+                Random point = new Random();
+                for (int i = 0; i < 4; i++)
+                {
+                    points[i] = point.Next(0, 42);
+                }
+
+                //поиск максимума
+                int max = int.MinValue; int imax = 0;
+                for (int i = 0; i < 4; i++)
+                {
+                    if (points[i] > max)
+                    {
+                        max = points[i]; imax = i;
+                    }
+                }
+
+                //поиск минимума 
+                int min = int.MaxValue; int imin = 0;
+                for (int i = 0; i < 4; i++)
+                {
+                    if (points[i] < min)
+                    {
+                        min = points[i]; imin = i;
+                    }
+                }
+
+                int sum = 0;
+                for (int i = 0; i < 4; i++)
+                {
+                    if (i != imax && i != imin) sum += points[i];
+                }
+
+                //финальные очки
+                total_points = sum * K();
+
+                return total_points;
+            }
+            static double K()
+            {
+                double k = 2.5;
+                double[] k_list = new double[6];
+                for (int i = 0; i < 6; i++)
+                {
+                    k_list[i] = k;
+                    k += 0.2;
+                }
+                Random random = new Random();
+                int K = random.Next(0, 5);
+                k = k_list[K];
+                return k;
+            }
+            static Sportsmen[] Sort(Sportsmen[] sportsmens)
+            {
+                Sportsmen man;
+                for (int i = 0; i < sportsmens.Length; i++)
+                {
+                    for (int j = i + 1; j < sportsmens.Length; j++)
+                    {
+                        if (sportsmens[j].Points > sportsmens[i].Points)
+                        {
+                            man = sportsmens[i];
+                            sportsmens[i] = sportsmens[j];
+                            sportsmens[j] = man;
+                        }
+                    }
+
+                }
+                return sportsmens;
+            }
         }
+
     }
 }
