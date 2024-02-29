@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,8 +12,8 @@ namespace Level3
         {
             private string _name;
             private int _score;
-            public string Name { get { return _name;} }
-            public int Score { get { return _score;} }
+            public string Name { get { return _name; } }
+            public int Score { get { return _score; } }
             public Team(string name, int score)
             {
                 _name = name;
@@ -38,10 +38,10 @@ namespace Level3
             new Team("Everton", 19) };
             Sort(group1);
             Sort(group2);
-            for (int i = 0; i < 6; i++)
+            Team[] next = TwoToOne(group1, group2);
+            for (int i = 0; i < next.Length; i++)
             {
-                group1[i].Display();
-                group2[i].Display();
+                next[i].Display();
             }
         }
         static void Sort(Team[] Teams)
@@ -59,6 +59,35 @@ namespace Level3
                 }
             }
         }
+        static Team[] TwoToOne(Team[] group1, Team[] group2)
+        {
+            Team[] result = new Team[group1.Length/2 + group2.Length/2];
+            int i, j;
+            i = j = 0;
+            for (int k = 0; k < result.Length; k++)
+            {
+                if (i >= group1.Length)
+                {
+                    result[k] = group2[j];
+                    j++;
+                }
+                else if (j >= group2.Length)
+                {
+                    result[k] = group1[i];
+                    i++;
+                }
+                else if (group1[i].Score < group2[j].Score)
+                {
+                    result[k] = group2[j];
+                    j++;
+                }
+                else
+                {
+                    result[k] = group1[i];
+                    i++;
+                }
+            }
+            return result;
+        }
     }
 }
-
