@@ -18,12 +18,6 @@ namespace lab6
             _markRus = markRus;
         }
 
-        public int MarkMath => _markMath;
-
-        public int MarkPhys => _markPhys;
-
-        public int MarkRus => _markRus;
-
         public void WriteStudent()
         {
             Console.WriteLine($"{_name} Math: {_markMath} Physics: {_markPhys} Russian: {_markRus}");
