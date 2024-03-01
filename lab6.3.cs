@@ -102,7 +102,7 @@ namespace lab6
         //            (Group2[k], Group2[k + 1]) = (Group2[k + 1], Group2[k]);
 
         //sorting groups by teams scores - insertion
-        for (int i = 0; i < Group1.Length; i++)
+        for (int i = 1; i < Group1.Length; i++)
         {
             Team x = Group1[i];
             int j = i - 1;
@@ -114,7 +114,7 @@ namespace lab6
             Group1[j + 1] = x;
         }
 
-        for (int i = 0; i < Group2.Length; i++)
+        for (int i = 1; i < Group2.Length; i++)
         {
             Team x = Group2[i];
             int j = i - 1;
