@@ -1,0 +1,14 @@
+D:\инфа\6th laba first task\6th laba first task\bin\Debug\net6.0\6th laba first task.exe
+D:\инфа\6th laba first task\6th laba first task\bin\Debug\net6.0\6th laba first task.deps.json
+D:\инфа\6th laba first task\6th laba first task\bin\Debug\net6.0\6th laba first task.runtimeconfig.json
+D:\инфа\6th laba first task\6th laba first task\bin\Debug\net6.0\6th laba first task.dll
+D:\инфа\6th laba first task\6th laba first task\bin\Debug\net6.0\6th laba first task.pdb
+D:\инфа\6th laba first task\6th laba first task\obj\Debug\net6.0\6th laba first task.GeneratedMSBuildEditorConfig.editorconfig
+D:\инфа\6th laba first task\6th laba first task\obj\Debug\net6.0\6th laba first task.AssemblyInfoInputs.cache
+D:\инфа\6th laba first task\6th laba first task\obj\Debug\net6.0\6th laba first task.AssemblyInfo.cs
+D:\инфа\6th laba first task\6th laba first task\obj\Debug\net6.0\6th laba first task.csproj.CoreCompileInputs.cache
+D:\инфа\6th laba first task\6th laba first task\obj\Debug\net6.0\6th laba first task.dll
+D:\инфа\6th laba first task\6th laba first task\obj\Debug\net6.0\refint\6th laba first task.dll
+D:\инфа\6th laba first task\6th laba first task\obj\Debug\net6.0\6th laba first task.pdb
+D:\инфа\6th laba first task\6th laba first task\obj\Debug\net6.0\6th laba first task.genruntimeconfig.cache
+D:\инфа\6th laba first task\6th laba first task\obj\Debug\net6.0\ref\6th laba first task.dll
