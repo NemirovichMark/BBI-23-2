@@ -1,0 +1,14 @@
+C:\Users\m2304549\source\repos\6 laba 1\6 laba 1\bin\Debug\net7.0\6 laba 1.exe
+C:\Users\m2304549\source\repos\6 laba 1\6 laba 1\bin\Debug\net7.0\6 laba 1.deps.json
+C:\Users\m2304549\source\repos\6 laba 1\6 laba 1\bin\Debug\net7.0\6 laba 1.runtimeconfig.json
+C:\Users\m2304549\source\repos\6 laba 1\6 laba 1\bin\Debug\net7.0\6 laba 1.dll
+C:\Users\m2304549\source\repos\6 laba 1\6 laba 1\bin\Debug\net7.0\6 laba 1.pdb
+C:\Users\m2304549\source\repos\6 laba 1\6 laba 1\obj\Debug\net7.0\6 laba 1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\m2304549\source\repos\6 laba 1\6 laba 1\obj\Debug\net7.0\6 laba 1.AssemblyInfoInputs.cache
+C:\Users\m2304549\source\repos\6 laba 1\6 laba 1\obj\Debug\net7.0\6 laba 1.AssemblyInfo.cs
+C:\Users\m2304549\source\repos\6 laba 1\6 laba 1\obj\Debug\net7.0\6 laba 1.csproj.CoreCompileInputs.cache
+C:\Users\m2304549\source\repos\6 laba 1\6 laba 1\obj\Debug\net7.0\6 laba 1.dll
+C:\Users\m2304549\source\repos\6 laba 1\6 laba 1\obj\Debug\net7.0\refint\6 laba 1.dll
+C:\Users\m2304549\source\repos\6 laba 1\6 laba 1\obj\Debug\net7.0\6 laba 1.pdb
+C:\Users\m2304549\source\repos\6 laba 1\6 laba 1\obj\Debug\net7.0\6 laba 1.genruntimeconfig.cache
+C:\Users\m2304549\source\repos\6 laba 1\6 laba 1\obj\Debug\net7.0\ref\6 laba 1.dll
