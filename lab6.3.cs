@@ -102,13 +102,29 @@ namespace lab6
         //            (Group2[k], Group2[k + 1]) = (Group2[k + 1], Group2[k]);
 
         //sorting groups by teams scores - insertion
-        for (int i = 0; i < Group1.Length - 1; i++)
-            for (int j = i; j > 0 && Group1[j - 1].Score < Group1[j].Score; j--)
-                (Group1[j - 1], Group1[j]) = (Group1[j], Group1[j - 1]);
+        for (int i = 0; i < Group1.Length; i++)
+        {
+            Team x = Group1[i];
+            int j = i - 1;
+            while (j >= 0 && Group1[j].Score < x.Score)
+            {
+                Group1[j + 1] = Group1[j];
+                j--;
+            }
+            Group1[j + 1] = x;
+        }
 
-        for (int i = 0; i < Group2.Length - 1; i++)
-            for (int j = i; j > 0 && Group2[j - 1].Score < Group2[j].Score; j--)
-                (Group2[j - 1], Group2[j]) = (Group2[j], Group2[j - 1]);
+        for (int i = 0; i < Group2.Length; i++)
+        {
+            Team x = Group2[i];
+            int j = i - 1;
+            while (j >= 0 && Group2[j].Score < x.Score)
+            {
+                Group2[j + 1] = Group2[j];
+                j--;
+            }
+            Group2[j + 1] = x;
+        }
 
         //creating sorted array with elements of top-6's
         Team[] FinalGroup = new Team[12];
