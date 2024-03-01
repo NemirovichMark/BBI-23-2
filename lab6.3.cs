@@ -6,8 +6,8 @@ namespace lab6
 {
     public struct Team
     {
-        public int _teamID;
-        public int _score;
+        private int _teamID;
+        private int _score;
         public Team(int teamID, int score)
         {
             _teamID = teamID;
@@ -26,6 +26,35 @@ namespace lab6
 
     internal static class Program
     {
+        static void MergeGroups(Team[] Group1, Team[] Group2, Team[] FinalGroup)
+        {
+            int i = 0, j = 0, k = 0;
+            while (i < 6 && j < 6)
+            {
+                if (Group1[i].Score >= Group2[j].Score)
+                {
+                    FinalGroup[k] = Group1[i];
+                    i++; k++;
+                }
+                else
+                {
+                    FinalGroup[k] = Group2[j];
+                    j++; k++;
+                }
+            }
+
+            while (i < 6)
+            {
+                FinalGroup[k] = Group2[i];
+                i++; k++;
+            }
+
+        while (j < 6)
+        {
+            FinalGroup[k] = Group2[j];
+            j++; k++;
+        }
+    }
         static void Main()
         {
         //creating 2 groups
@@ -61,25 +90,32 @@ namespace lab6
             new Team(23, 4)
         };
 
-        //sorting groups by teams scores
+        //sorting groups by teams scores - bubble
+        //for (int i = 0; i < Group1.Length - 1; i++)
+        //    for (int k = 0; k < Group1.Length - i - 1; k++)
+        //        if (Group1[k].Score < Group1[k + 1].Score)
+        //            (Group1[k], Group1[k + 1]) = (Group1[k + 1], Group1[k]);
+
+        //for (int i = 0; i < Group2.Length - 1; i++)
+        //    for (int k = 0; k < Group1.Length - i - 1; k++)
+        //        if (Group2[k].Score < Group2[k + 1].Score)
+        //            (Group2[k], Group2[k + 1]) = (Group2[k + 1], Group2[k]);
+
+        //sorting groups by teams scores - insertion
         for (int i = 0; i < Group1.Length - 1; i++)
-            for (int k = 0; k < Group1.Length - i - 1; k++)
-                if (Group1[k].Score < Group1[k + 1].Score)
-                    (Group1[k], Group1[k + 1]) = (Group1[k + 1], Group1[k]);
+            for (int j = i; j > 0 && Group1[j - 1].Score < Group1[j].Score; j--)
+                (Group1[j - 1], Group1[j]) = (Group1[j], Group1[j - 1]);
 
         for (int i = 0; i < Group2.Length - 1; i++)
-            for (int k = 0; k < Group1.Length - i - 1; k++)
-                if (Group2[k].Score < Group2[k + 1].Score)
-                    (Group2[k], Group2[k + 1]) = (Group2[k + 1], Group2[k]);
+            for (int j = i; j > 0 && Group2[j - 1].Score < Group2[j].Score; j--)
+                (Group2[j - 1], Group2[j]) = (Group2[j], Group2[j - 1]);
 
-        //writing 2 lists of top-6 teams from both groups
-        for (int i = 0; i < 6; i++)
-        {
-            Group1[i].WriteTeam();
-        }
-        for (int i = 0; i < 6; i++)
-        {
-            Group2[i].WriteTeam();
-        }
+        //creating sorted array with elements of top-6's
+        Team[] FinalGroup = new Team[12];
+        MergeGroups(Group1, Group2, FinalGroup);
+
+        //writing final array
+        for (int i = 0; i < FinalGroup.Length; i++)
+            FinalGroup[i].WriteTeam();
     }
 }
