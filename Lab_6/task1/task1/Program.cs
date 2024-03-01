@@ -10,9 +10,6 @@ class Program
         private double secondAttempt;
 
         public string LastName => lastName;
-        public string Club => club;
-        public double FirstAttempt => firstAttempt;
-        public double SecondAttempt => secondAttempt;
         public double TotalDistance => firstAttempt + secondAttempt;
 
         public Athlete(string lastName, string club, double firstAttempt, double secondAttempt)
@@ -22,12 +19,30 @@ class Program
             this.firstAttempt = firstAttempt;
             this.secondAttempt = secondAttempt;
         }
-        //Если я правильно понял ваше исправление, вы хотили, чтобы я просто инкапсулировал метод вывода информации в структуру
+
         public string GetAthleteInfo(int place)
         {
             return $"Место {place} | Фамилия {lastName}\n";
         }
 
+    }
+
+    static void ShellSort(Athlete[] array)
+    {
+        int n = array.Length;
+        for (int gap = n / 2; gap > 0; gap /= 2)
+        {
+            for (int i = gap; i < n; i++)
+            {
+                Athlete temp = array[i];
+                int j;
+                for (j = i; j >= gap && array[j - gap].TotalDistance > temp.TotalDistance; j -= gap)
+                {
+                    array[j] = array[j - gap];
+                }
+                array[j] = temp;
+            }
+        }
     }
 
     static void Main()
@@ -40,7 +55,7 @@ class Program
         athletes[3] = new Athlete("Волчков", "Зенит", 6.6, 6.9);
         athletes[4] = new Athlete("Джугашвили", "СССР", 2.1, 3.4);
 
-        Array.Sort(athletes, (x, y) => x.TotalDistance.CompareTo(y.TotalDistance));
+        ShellSort(athletes);
 
         for (int i = 0; i < athletes.Length; i++)
         {
