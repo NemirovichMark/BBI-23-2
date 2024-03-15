@@ -1,0 +1,14 @@
+C:\Users\Анастасия\Documents\Универ\Програмирование\лаба 6\лаба 6\bin\Debug\net8.0\61.exe
+C:\Users\Анастасия\Documents\Универ\Програмирование\лаба 6\лаба 6\bin\Debug\net8.0\61.deps.json
+C:\Users\Анастасия\Documents\Универ\Програмирование\лаба 6\лаба 6\bin\Debug\net8.0\61.runtimeconfig.json
+C:\Users\Анастасия\Documents\Универ\Програмирование\лаба 6\лаба 6\bin\Debug\net8.0\61.dll
+C:\Users\Анастасия\Documents\Универ\Програмирование\лаба 6\лаба 6\bin\Debug\net8.0\61.pdb
+C:\Users\Анастасия\Documents\Универ\Програмирование\лаба 6\лаба 6\obj\Debug\net8.0\61.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Анастасия\Documents\Универ\Програмирование\лаба 6\лаба 6\obj\Debug\net8.0\61.AssemblyInfoInputs.cache
+C:\Users\Анастасия\Documents\Универ\Програмирование\лаба 6\лаба 6\obj\Debug\net8.0\61.AssemblyInfo.cs
+C:\Users\Анастасия\Documents\Универ\Програмирование\лаба 6\лаба 6\obj\Debug\net8.0\61.csproj.CoreCompileInputs.cache
+C:\Users\Анастасия\Documents\Универ\Програмирование\лаба 6\лаба 6\obj\Debug\net8.0\61.dll
+C:\Users\Анастасия\Documents\Универ\Програмирование\лаба 6\лаба 6\obj\Debug\net8.0\refint\61.dll
+C:\Users\Анастасия\Documents\Универ\Програмирование\лаба 6\лаба 6\obj\Debug\net8.0\61.pdb
+C:\Users\Анастасия\Documents\Универ\Програмирование\лаба 6\лаба 6\obj\Debug\net8.0\61.genruntimeconfig.cache
+C:\Users\Анастасия\Documents\Универ\Програмирование\лаба 6\лаба 6\obj\Debug\net8.0\ref\61.dll
