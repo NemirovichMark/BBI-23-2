@@ -6,7 +6,6 @@ struct Employee
     private int Age;
     private int YearOfHiring;
     private double Salary;
-    Employee[] employees = new Employee[5];
     private static int employeesHiredAfter2020 = 0;
 
     public Employee(string name, int age, int yearOfHiring, double salary)
