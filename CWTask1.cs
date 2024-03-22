@@ -46,12 +46,8 @@ namespace contr1
             Random rnd = new Random();
             int Num = rnd.Next(0, 10);
             GuessGame GGame = new GuessGame(Num);
-            int Written;
             while (GGame.IsGuessed == false)
-            {
-                Written = Convert.ToInt32(Console.ReadLine());
-                GGame.Guessing(Written);
-            }
+                GGame.Guessing(Convert.ToInt32(Console.ReadLine()));
         }
     }
 }
