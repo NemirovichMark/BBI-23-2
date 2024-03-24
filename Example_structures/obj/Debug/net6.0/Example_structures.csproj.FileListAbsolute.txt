@@ -1,0 +1,14 @@
+C:\Users\b804\Source\Repos\BBI-23-2\Example_structures\obj\Debug\net6.0\Example_structures.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\b804\Source\Repos\BBI-23-2\Example_structures\obj\Debug\net6.0\Example_structures.AssemblyInfoInputs.cache
+C:\Users\b804\Source\Repos\BBI-23-2\Example_structures\obj\Debug\net6.0\Example_structures.AssemblyInfo.cs
+C:\Users\b804\Source\Repos\BBI-23-2\Example_structures\obj\Debug\net6.0\Example_structures.csproj.CoreCompileInputs.cache
+C:\Users\b804\Source\Repos\BBI-23-2\Example_structures\bin\Debug\net6.0\Example_structures.exe
+C:\Users\b804\Source\Repos\BBI-23-2\Example_structures\bin\Debug\net6.0\Example_structures.deps.json
+C:\Users\b804\Source\Repos\BBI-23-2\Example_structures\bin\Debug\net6.0\Example_structures.runtimeconfig.json
+C:\Users\b804\Source\Repos\BBI-23-2\Example_structures\bin\Debug\net6.0\Example_structures.dll
+C:\Users\b804\Source\Repos\BBI-23-2\Example_structures\bin\Debug\net6.0\Example_structures.pdb
+C:\Users\b804\Source\Repos\BBI-23-2\Example_structures\obj\Debug\net6.0\Example_structures.dll
+C:\Users\b804\Source\Repos\BBI-23-2\Example_structures\obj\Debug\net6.0\refint\Example_structures.dll
+C:\Users\b804\Source\Repos\BBI-23-2\Example_structures\obj\Debug\net6.0\Example_structures.pdb
+C:\Users\b804\Source\Repos\BBI-23-2\Example_structures\obj\Debug\net6.0\Example_structures.genruntimeconfig.cache
+C:\Users\b804\Source\Repos\BBI-23-2\Example_structures\obj\Debug\net6.0\ref\Example_structures.dll
