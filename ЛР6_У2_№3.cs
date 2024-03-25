@@ -1,50 +1,74 @@
 ﻿using System;
-struct Struct1
+
+struct Gymnast
 {
-    public string famile;
-    public double rez;
-    public double[] x;
-    public Struct1(string famile1, double[] x1)
+    private string _surname;
+    private double _highestResult;
+
+    public Gymnast(string famile1, double[] results)
     {
-        famile = famile1;
-        x = x1;
-        rez = x[0];
-        for (int i = 1; i < 3; i = i + 1)
-            if (x[i] > rez)
+        _surname = famile1;
+        _highestResult = results[0];
+        
+        for (int i = 1; i < 3; i++)
+        {
+            if (results[i] > _highestResult)
             {
-                rez = x[i];
+                _highestResult = results[i];
             }
+        }
+    }
+
+    public string GetSurname()
+    {
+        return _surname;
+    }
+
+    public double GetHighestResult()
+    {
+        return _highestResult;
+    }
+
+    public void PrintResult()
+    {
+        Console.WriteLine("Фамилия: {0}\t" + "Лучший результат: {1,4:f2}", _surname, _highestResult);
     }
 }
+
 class Program
 {
     static void Main(string[] args)
     {
-        Struct1[] c1 = new Struct1[5];
-        c1[0] = new Struct1("Борисов", new double[] { 15.7, 7.5, 16.0 });
-        c1[1] = new Struct1("Петров", new double[] { 16.7, 9.5, 18.0 });
-        c1[2] = new Struct1("Иванов", new double[] { 19.7, 2.5, 15.0 });
-        c1[3] = new Struct1("Николаев", new double[] { 20.7, 5.5, 13.0 });
-        c1[4] = new Struct1("Андреев", new double[] { 12.7, 9.5, 20.0 });
-        for (int i = 0; i < c1.Length - 1; i = i + 1)
+        Gymnast[] gymnasts = new Gymnast[5]
         {
-            double amax = c1[i].rez;
+            new Gymnast("Борисов", [15.7, 7.5, 16.0]),
+            new Gymnast("Петров", [16.7, 9.5, 18.0]),
+            new Gymnast("Иванов", [19.7, 2.5, 15.0]),
+            new Gymnast("Николаев", [20.7, 5.5, 13.0]),
+            new Gymnast("Андреев", [12.7, 9.5, 20.0])
+        };
+
+        for (int i = 0; i < gymnasts.Length - 1; i++)
+        {
+            double amax = gymnasts[i].GetHighestResult();
             int imax = i;
-            for (int j = i + 1; j < c1.Length; j = j + 1)
+            for (int j = i + 1; j < gymnasts.Length; j++)
             {
-                if (c1[j].rez > amax)
+                if (gymnasts[j].GetHighestResult() > amax)
                 {
-                    amax = c1[j].rez;
+                    amax = gymnasts[j].GetHighestResult();
                     imax = j;
                 }
             }
-            Struct1 temp;
-            temp = c1[imax];
-            c1[imax] = c1[i];
-            c1[i] = temp;
+
+            (gymnasts[imax], gymnasts[i]) = (gymnasts[i], gymnasts[imax]);
         }
+
         Console.WriteLine();
-        for (int i = 0; i < c1.Length; i = i + 1)
-            Console.WriteLine("Фамилия {0}\t" + "Лучший результат {1,4:f2}", c1[i].famile, c1[i].rez);
+
+        foreach (var gymnast in gymnasts)
+        {
+            gymnast.PrintResult();
+        }
     }
 }

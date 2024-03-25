@@ -4,7 +4,22 @@ using System.Linq;
 
 struct SurveyResponse
 {
-    public string PersonOfYear;
+    private string _personOfYear;
+
+    public SurveyResponse(string personOfYear)
+    {
+        _personOfYear = personOfYear;
+    }
+
+    public string GetPersonOfYear()
+    {
+        return _personOfYear;
+    }
+
+    public void PrintResponse(int count, double percentage)
+    {
+        Console.WriteLine($"{_personOfYear}: {count} ответов ({percentage:0.00}% от общего числа)");
+    }
 }
 
 class Program
@@ -13,38 +28,31 @@ class Program
     {
         SurveyResponse[] surveyResponses = new SurveyResponse[]
         {
-            new SurveyResponse { PersonOfYear = "Шаман" },
-            new SurveyResponse { PersonOfYear = "Настя Ивлеева" },
-            new SurveyResponse { PersonOfYear = "Филипп Киркоров" },
-            new SurveyResponse { PersonOfYear = "Евгений Пригожин" },
-            new SurveyResponse { PersonOfYear = "Шаман" },
-            new SurveyResponse { PersonOfYear = "Настя Ивлеева" },
-            new SurveyResponse { PersonOfYear = "Шаман" },
-            new SurveyResponse { PersonOfYear = "Егор Крид" },
-            new SurveyResponse { PersonOfYear = "Евгений Пригожин" },
-            new SurveyResponse { PersonOfYear = "Шаман" },
+            new SurveyResponse("Шаман"),
+            new SurveyResponse("Настя Ивлеева"),
+            new SurveyResponse("Филипп Киркоров"),
+            new SurveyResponse("Евгений Пригожин"),
+            new SurveyResponse("Шаман"),
+            new SurveyResponse("Настя Ивлеева"),
+            new SurveyResponse("Шаман"),
+            new SurveyResponse("Егор Крид"),
+            new SurveyResponse("Евгений Пригожин"),
+            new SurveyResponse("Шаман"),
         };
-
-        Dictionary<string, int> responseFrequency = new Dictionary<string, int>();
-
-        foreach (var response in surveyResponses)
-        {
-            if (responseFrequency.ContainsKey(response.PersonOfYear))
-                responseFrequency[response.PersonOfYear]++;
-            else
-                responseFrequency[response.PersonOfYear] = 1;
-        }
-
-        var sortedResponses = responseFrequency.OrderByDescending(pair => pair.Value);
 
         int totalResponses = surveyResponses.Length;
 
         Console.WriteLine("Пять наиболее частых ответов:");
 
-        foreach (var pair in sortedResponses.Take(Math.Min(5, sortedResponses.Count())))
+        var groupedResponses = surveyResponses
+            .GroupBy(response => response.GetPersonOfYear())
+            .OrderByDescending(group => group.Count())
+            .Take(5);
+
+        foreach (var response in groupedResponses)
         {
-            double percentage = ((double)pair.Value / totalResponses) * 100;
-            Console.WriteLine($"{pair.Key}: {pair.Value} ответов ({percentage:0.00}% от общего числа)");
+            double percentage = (double)response.Count() / totalResponses * 100;
+            response.First().PrintResponse(response.Count(), percentage);
         }
     }
 }
