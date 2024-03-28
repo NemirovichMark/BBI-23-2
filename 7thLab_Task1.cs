@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace _7thLab_Task1
 {
-    abstract class Member
+    class Member
     {
         private string _firstName;
         private string _secondName;
@@ -24,10 +24,10 @@ namespace _7thLab_Task1
                     _firstName = value;
             }
         }
-         
+
         public float BestRes { get { return _res1 > _res2 ? _res1 : _res2; } }
 
-        public Member(string firstName, string secondName, float res1, float res2) 
+        public Member(string firstName, string secondName, float res1, float res2)
         {
             _firstName = firstName;
             _secondName = secondName;
@@ -37,7 +37,10 @@ namespace _7thLab_Task1
         }
         public void Disqualification(bool status)
         {
-            _disqualified = status;
+            if (!_disqualified)
+            {
+                _disqualified = status;
+            }
         }
         public void Print()
         {
@@ -48,40 +51,32 @@ namespace _7thLab_Task1
         }
     }
 
-    class ApprovedMember : Member
-    {
-        public ApprovedMember(string firstname, string secondname, float res1, float res2) : base(firstname, secondname, res1, res2)
-        {
-
-        }
-    }
-
-    internal class Program
+    class Program
     {
 
         static void Main()
         {
-            ApprovedMember[] members = new ApprovedMember[4];
-            members[0] = new ApprovedMember("Sergey", "Ivanov", 2.4f, 1.0f);
-            members[1] = new ApprovedMember("Valeriy", "Karpin", 2.6f, 1.4f);
-            members[2] = new ApprovedMember("Jack", "Sparrow", 1.5f, 1.2f);
-            members[3] = new ApprovedMember("Rick", "Sanchez", 2.3f, 1.4f);
+            Member[] members = new Member[4];
+            members[0] = new Member("Sergey", "Ivanov", 2.4f, 1.0f);
+            members[1] = new Member("Valeriy", "Karpin", 2.6f, 1.4f);
+            members[2] = new Member("Jack", "Sparrow", 1.5f, 1.2f);
+            members[3] = new Member("Rick", "Sanchez", 2.3f, 1.4f);
 
-            members[2].Disqualification(true);
+            members[3].Disqualification(true);
 
             GnomeSort(members);
 
             Console.WriteLine("Name          Result1   Result2   BestResult");
             Console.WriteLine("----------------------------------------------");
-            
 
-            foreach (ApprovedMember member in members)
+
+            foreach (Member member in members)
             {
                 member.Print();
             }
             Console.ReadLine();
         }
-        public static void GnomeSort(ApprovedMember[] members)
+        public static void GnomeSort(Member[] members)
         {
             int i = 1;
             int j = i + 1;
@@ -94,7 +89,7 @@ namespace _7thLab_Task1
                 }
                 else
                 {
-                    ApprovedMember temp = members[i]; ;
+                    Member temp = members[i]; ;
                     members[i] = members[i - 1];
                     members[i - 1] = temp;
                     i--;
