@@ -1,0 +1,235 @@
+﻿//Составить программу для обработки результатов кросса на 500 м для женщин.
+//Для каждой участницы ввести фамилию, группу, фамилию преподавателя,
+//результат. Получить результирующую таблицу, упорядоченную по результатам, в
+//которой содержится также информация о выполнении норматива. Определить
+//суммарное количество участниц, выполнивших норматив. 
+using System;
+using System.Runtime.Intrinsics.Arm;
+struct sportswomen
+{
+    private string surname; // поля - переменные, используемые во всей структуре
+    private string surnameT;
+    private string gruppa;
+    private double result;
+
+    public double r { get { return result; } }
+
+    public sportswomen(string s, string sT, string g, double r) // конструктор для заполнения при создании
+    {
+        surname = s;
+        surnameT = sT;
+        gruppa = g;
+        result = r;
+    }
+    public void GetInfo()
+    {
+            Console.WriteLine($"sportswomen = {surname}, surnameT = {surnameT},gruppa = {gruppa}, \t rez1 = {result} сек");
+    }
+}
+class program
+{
+    static void Main()
+    {
+        double norm = 520;
+        Console.WriteLine($"Норматив = {norm} сек");
+        sportswomen[] sport = new sportswomen[5]
+        {
+            new sportswomen("AAA", "aaat", "gruppa1", 499),
+            new sportswomen("BBB", "bbbt", "gruppa2", 56),
+            new sportswomen("CCC", "ccct", "gruppa3", 560),
+            new sportswomen("DDD", "dddt", "gruppa4", 270),
+            new sportswomen("FFF", "ffft", "gruppa5", 120),
+    };
+        foreach(sportswomen sp in sport)
+        {
+            sp.GetInfo();
+        }
+        Console.WriteLine();
+        int k = 0;
+        for (int i = 0; i < 5; i++)
+        {
+            if (sport[i].r <= norm)
+            {
+                k = k + 1;
+            }
+        }
+        Console.WriteLine($"Выполнили норматив эти милые дамы: {k}");
+        Sort(sport);
+        Console.WriteLine();
+        for (int i = 0; i < 5; i++)
+        {
+            sport[i].GetInfo();
+        }
+
+    }
+    static void Sort(sportswomen[] sport) 
+    {
+        for (int i = 0; i < sport.Length-1; i++)
+        {
+            for (int j = i; j < sport.Length; j++)
+            {
+                if (sport[i].r > sport[j].r)
+                {
+                    sportswomen temp = sport[i];
+                    sport[i] = sport[j];
+                    sport[j] = temp;
+                }
+            }
+        }
+    }
+
+}
+
+
+
+
+
+
+//После окончания соревнования по шахматам турнирная таблица содержит фамилии
+//участников и результаты сыгранных партий (выигрыш – 1 очко, ничья – 1/2 очка,
+//проигрыш – 0 очков). Составить итоговую таблицу в порядке убывания
+//полученных участниками очков. 
+
+using System;
+using System.Runtime.Intrinsics.Arm;
+public struct chesswomen
+{
+    private string surname; // поля - переменные, используемые во всей структур
+    private double nich, pob, prog, rez;
+    public double Rez { get { return rez; }  }
+
+    public chesswomen(string s, double n, double po, double pr) // конструктор для заполнения при создании
+    {
+        surname = s;
+        nich = n;
+        pob = po;
+        prog = pr;
+        rez = (double)(nich * 0.5 + 0 * prog + 1 * pob);
+    }
+    public void GetInfo()
+    {
+        Console.WriteLine($"chesswomen = {surname}, nich = {nich},pob = {pob}, prog = {prog}, rez={rez}");
+    }
+}
+class program
+{
+    static void Main()
+    {
+        chesswomen[] sport = new chesswomen[5]
+        {
+                    new chesswomen("AAA", 2, 1, 1),
+                    new chesswomen("BBB", 1, 1, 2),
+                    new chesswomen("CCC", 1, 2, 1),
+                    new chesswomen("DDD", 1, 1, 2),
+                    new chesswomen("FFF", 2, 1, 1),
+        };
+        double[] x = new double[5];
+        for (int i = 0; i < 5; i++)
+        {
+            sport[i].GetInfo();
+            x[i]=sport[i].Rez;
+        }
+        Sort(x, sport);
+        Console.WriteLine();
+        for(int i =0; i< 5; i++)
+        {
+            sport[i].GetInfo();
+        }
+        
+        static void Sort(double[]x, chesswomen[] sport)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5 - 1; j++)
+                {
+                    if (x[j] < x[j + 1])
+                    {
+                        (sport[j + 1], sport[j]) = (sport[j], sport[j + 1]);
+                        (x[j + 1], x[j]) = (x[j], x[j + 1]);
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+
+
+
+//Результаты сессии содержат оценки 5 экзаменов по каждой группе. Определить 
+//средний балл для трех групп студентов одного потока и выдать список групп в 
+//порядке убывания среднего бала. Результаты вывести в виде таблицы с заголовком
+struct students
+{
+    private string gruppa;
+    private string surname;
+    private double ball;
+
+    public double Ball { get { return ball; } }
+    public students(string g, string f, int ball1, int ball2, int ball3, int ball4, int ball5)
+    {
+        gruppa = g;
+        surname = f;
+        ball = (double)(ball1 + ball2 + ball3 + ball4 + ball5) / 5;
+    }
+    public void GetInfo()
+    {
+        Console.WriteLine($"группа: {gruppa}, " +
+                $"фамилия: {surname}\t средний балл: {ball}");
+    }
+}
+class programm
+{
+    static void Main()
+    {
+        int n = 9;
+        students[] st = new students[n];
+        st[0] = new students("gruppa1", "Дроздов", 4, 2, 3, 2, 5);
+        st[1] = new students("gruppa1", "Голубкова", 3, 2, 5, 5, 2);
+        st[2] = new students("gruppa1", "Чайкина", 5, 4, 5, 4, 4);
+        st[3] = new students("gruppa2", "Воронова", 3, 4, 3, 2, 5);
+        st[4] = new students("gruppa2", "Петухова", 4, 2, 4, 5, 5);
+        st[5] = new students("gruppa2", "Грачов", 4, 3, 4, 2, 4);
+        st[6] = new students("gruppa3", "Соколов", 2, 3, 3, 5, 5);
+        st[7] = new students("gruppa3", "Курицын", 4, 5, 4, 4, 5);
+        st[8] = new students("gruppa3", "Ласточкина", 4, 5, 4, 2, 4);
+        double[] gruppa1 = new double[3];
+        double[] gruppa2 = new double[3];
+        double[] gruppa3 = new double[3];
+        double[] gruppa = new double[9];
+        int x1 = 0, x2 = 0, x3 = 0;
+        int i = 0, j = 0;
+        for (i = 0; i < n; i++)
+        {
+            st[i].GetInfo();
+            gruppa[i] = st[i].Ball;
+        }
+        Sort(gruppa, st);
+        Console.WriteLine();
+        for (i = 0; i < n; i++)
+        {
+            st[i].GetInfo();
+        }
+        static void Sort(double[] gruppa, students[] st)
+        {
+            for (int i = 0; i < gruppa.Length; i++)
+            {
+                for (int j = 0; j < gruppa.Length - 1; j++)
+                {
+                    if (gruppa[j + 1] > gruppa[j])
+                    {
+                        (gruppa[j + 1], gruppa[j]) = (gruppa[j], gruppa[j + 1]);
+                        (st[j + 1], st[j]) = (st[j], st[j + 1]);
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
